@@ -1,4 +1,4 @@
-# fast_route
+# [WIP] fast_route
 
 fast_route is a custom Flutter routing library inspired by [vue-router](https://github.com/vuejs/vue-router).
 
@@ -23,7 +23,7 @@ List<FastRoute> routes = [
   FastRoute(
     path: '/',
     builder: (context, params) => Home(),
-    beforeEnter: (from,to) async { // Custom guard
+    beforeEnter: (from, to) async { // Custom guard
 
         SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -40,6 +40,13 @@ List<FastRoute> routes = [
     path: '/login',
     name: "login",
     builder: (context, params) => Login(),
+  ),
+  FastRoute(
+    path: '/posts/:id',
+    name: 'post',
+    builder: (context, params) => Post(
+      id: params['id'],
+    ),
   ),
 ];
 
@@ -69,4 +76,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+```
+
+```dart
+FastRouter.pushNamed('home');
+
+FastRouter.pushNamed('post', { 'id' : 1 });
 ```
