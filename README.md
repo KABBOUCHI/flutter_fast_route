@@ -2,7 +2,7 @@
 
 fast_route is a custom Flutter routing library inspired by [vue-router](https://github.com/vuejs/vue-router).
 
-[![Version](https://img.shields.io/badge/version-0.0.1-blue.svg)](https://pub.dartlang.org/packages/fast_route)
+[![Version](https://img.shields.io/badge/version-0.0.2-blue.svg)](https://pub.dartlang.org/packages/fast_route)
 
 ## Getting started
 
@@ -10,7 +10,7 @@ You should ensure that you add the router as a dependency in your flutter projec
 
 ```yaml
 dependencies:
- fast_route: "^0.0.1"
+ fast_route: "^0.0.2"
 ```
 
 ## Example
