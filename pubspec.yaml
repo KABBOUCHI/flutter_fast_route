@@ -1,7 +1,6 @@
 name: fast_route
 description: A new Flutter package project.
 version: 0.0.1
-author: Georges KABBOUCHI
 homepage: https://github.com/KABBOUCHI/flutter_fast_route
 
 environment:
