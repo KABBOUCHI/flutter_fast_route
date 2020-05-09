@@ -1,14 +1,103 @@
 # fast_route
 
-A new Flutter package project.
+fast_route is a custom Flutter routing library inspired by [vue-router](https://github.com/vuejs/vue-router).
 
-## Getting Started
+[![Version](https://img.shields.io/badge/version-0.0.1-blue.svg)](https://pub.dartlang.org/packages/fast_route)
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Getting started
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+You should ensure that you add the router as a dependency in your flutter project.
+
+```yaml
+dependencies:
+ fast_route: "^0.0.1"
+```
+
+## Example
+
+```dart
+import 'package:fast_route/fast_route.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+List<FastRoute> routes = [
+  FastRoute(
+    path: '/',
+    builder: (context, params) => Home(),
+    beforeEnter: (from,to) async { // Custom guard
+
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+
+        bool isLoggedIn = prefs.getBool('loggedIn');
+
+        if (isLoggedIn == false) {
+            return FastRouter.routeByName('login');
+        }
+
+        return to;   
+    },
+  ),
+  FastRoute(
+    path: '/login',
+    name: "login",
+    builder: (context, params) => Login(),
+  ),
+];
+
+```
+
+
+```dart
+import 'package:fast_route/fast_route.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+List<FastRoute> routes = [
+  FastRoute(
+    path: '/',
+    builder: (context, params) => Home(),
+    beforeEnter: (from,to) async { // Custom guard
+
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+
+        bool isLoggedIn = prefs.getBool('loggedIn');
+
+        if (isLoggedIn == false) {
+            return FastRouter.routeByName('login');
+        }
+
+        return to;   
+    },
+  ),
+  FastRoute(
+    path: '/login',
+    name: "login",
+    builder: (context, params) => Login(),
+  ),
+];
+
+```
+
+```dart
+import 'package:fast_route/fast_route.dart';
+import 'package:flutter/material.dart';
+
+import 'routes.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Material App',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Material App Bar'),
+        ),
+        body: FastRouter(
+          routes: routes,
+        ),
+      ),
+    );
+  }
+}
+```
