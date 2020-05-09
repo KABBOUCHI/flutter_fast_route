@@ -45,37 +45,6 @@ List<FastRoute> routes = [
 
 ```
 
-
-```dart
-import 'package:fast_route/fast_route.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-List<FastRoute> routes = [
-  FastRoute(
-    path: '/',
-    builder: (context, params) => Home(),
-    beforeEnter: (from,to) async { // Custom guard
-
-        SharedPreferences prefs = await SharedPreferences.getInstance();
-
-        bool isLoggedIn = prefs.getBool('loggedIn');
-
-        if (isLoggedIn == false) {
-            return FastRouter.routeByName('login');
-        }
-
-        return to;   
-    },
-  ),
-  FastRoute(
-    path: '/login',
-    name: "login",
-    builder: (context, params) => Login(),
-  ),
-];
-
-```
-
 ```dart
 import 'package:fast_route/fast_route.dart';
 import 'package:flutter/material.dart';
