@@ -1,6 +1,6 @@
 name: fast_route
-description: A new Flutter package project.
-version: 0.0.1
+description: fast_route is a custom Flutter routing library inspired by vue-router.
+version: 0.0.2
 homepage: https://github.com/KABBOUCHI/flutter_fast_route
 
 environment:
