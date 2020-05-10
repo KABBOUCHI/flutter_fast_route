@@ -4,6 +4,8 @@ fast_route is a custom Flutter routing library inspired by [vue-router](https://
 
 [![Version](https://img.shields.io/badge/version-0.0.2-blue.svg)](https://pub.dartlang.org/packages/fast_route)
 
+**Note this is early WIP! Currently the focus is on making it stable and feature complete first. It is not recommended to use this for anything serious yet.**
+
 ## Getting started
 
 You should ensure that you add the router as a dependency in your flutter project.
